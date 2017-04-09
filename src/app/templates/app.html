@@ -1,0 +1,7 @@
+<h1>Hello {{title}}</h1>
+<input [(ngModel)]="name" placeholder="name">
+<b>{{name}}</b>
+<child-comp [userName]="name" [userAge]="age"></child-comp>
+<input type="text" [value]="name" />
+<p>Количество кликов {{count}}</p>
+<button (click)="increase()">Click</button>
