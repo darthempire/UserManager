@@ -9,7 +9,7 @@ export class AppComponent {
     name: string = "Vasya";
 	count: number = 0;
 
-	increase(): void {
-		this.count++;
+	onChanged(increased) {
+		increased == true ? this.count++ : this.count--;
 	}
 }

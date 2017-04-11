@@ -1,4 +1,4 @@
-import { Input, Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'auth-comp',
@@ -14,5 +14,10 @@ export class AuthComponent {
 	@Input()
 	set userName(theName: string) {
 		this.name = theName + "QQ";
+	}
+
+	@Output() onChanged = new EventEmitter<boolean>();
+	change(increased) {
+		this.onChanged.emit(increased);
 	}
 }
