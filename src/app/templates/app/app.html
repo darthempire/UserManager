@@ -1,5 +1,4 @@
-<auth-comp [userName]="name" (onChanged)="onChanged($event)"></auth-comp>
+<auth-comp [(userName)]="name"></auth-comp>
 <h1>{{count}}</h1>
 <h2>{{name}}</h2>
-<input type="text" [(ngModel)]="name">
 <button type="button" name="button" (click)="increase($event)">Click</button>

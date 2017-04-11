@@ -11,9 +11,12 @@ export class AuthComponent {
     name: string = "Denchik";
     passwordHash: string;
 
-	@Input()
-	set userName(theName: string) {
-		this.name = theName + "QQ";
+	@Input() userName: string;
+
+	@Output() userNameChange  = new EventEmitter<string>();
+	onNameChange(model: string) {
+		this.userName = model;
+		this.userNameChange.emit(model);
 	}
 
 	@Output() onChanged = new EventEmitter<boolean>();
