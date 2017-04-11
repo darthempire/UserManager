@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +6,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
-  name:string="Tom";
-  age:number = 24;
-  count: number=0;
-  increase() : void {
-      this.count++;
+  name: string = "Tom";
+  age: number = 24;
+  count: number = 0;
+
+  increase(): void {
+    this.count++;
   }
 }
