@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     name: string = "Vasya";
+	count: number = 0;
+
+	increase(): void {
+		this.count++;
+	}
 }
