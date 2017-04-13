@@ -43,11 +43,23 @@ export class UserService {
 
     postData(obj: User) {
         const body = JSON.stringify(obj);
-		console.log(body);
+        console.log(body);
         let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
 
         return this.http.post('http://localhost:64183/api/values/', body, { headers: headers })
             .map((resp: Response) => resp.json())
             .catch((error: any) => { return Observable.throw(error); });
+    }
+
+    sendParameters() {
+
+        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        var params = new URLSearchParams();
+        params.set('userName', "username");
+        params.set('id', "2");
+		console.log(params.toString());
+        return this.http.post('http://localhost:64183/api/values/', params.toString(), { headers: headers })
+            .map(res => res.json())
+            .catch((error: any) => { return Observable.throw(error); });;
     }
 }

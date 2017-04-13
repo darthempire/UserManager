@@ -43,6 +43,18 @@ export class AuthComponent {
 			});
     }
 
+	sendParameters() {
+		this.userService.sendParameters().subscribe(
+			(data) => {
+				console.log(data);
+			},
+			(error) => {
+				this.error = error;
+				console.log(error._body);
+			}
+		);
+	}
+
     @Input() userName: string;
 
     @Output() userNameChange = new EventEmitter<string>();
