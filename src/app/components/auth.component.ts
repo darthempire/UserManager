@@ -18,7 +18,7 @@ export class AuthComponent {
     passwordHash: string;
     items: User[] = [];
     users: User[] = [];
-	error:any;
+    error: any;
 
     constructor(private userService: UserService) { }
 
@@ -28,11 +28,19 @@ export class AuthComponent {
                 this.users = data;
                 console.log(this.users);
             },
-			(error) => {
-				this.error = error;
-				console.log(error._body);
-			}
+            (error) => {
+                this.error = error;
+                console.log(error._body);
+            }
         );
+    }
+
+    submit() {
+		let user = new User(1, "Name");
+        this.userService.postData(user)
+            .subscribe((data) => {
+				console.log(data);
+			});
     }
 
     @Input() userName: string;

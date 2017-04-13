@@ -2,6 +2,10 @@ export class User {
     _id: number;
     _userName: string;
 
+	constructor(id: number, name: string) {
+		this._id = id;
+		this._userName = name;
+	}
 
     // public set UserName(n: string) {
     //     let lastLetter: string = n.charAt(n.length - 1).toUpperCase();

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Response } from '@angular/http';
+import { Response, Headers } from '@angular/http';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -23,7 +23,7 @@ export class UserService {
 
         this.logService.write("операция получения данных");
 
-        return this.http.get('http://lord17-001-site1.ctempurl.com/api/orders')
+        return this.http.get('http://lord17-001-site1.ctempurl.com/api/users')
             .map((resp: Response) => {
 
                 let usersList = resp.json();
@@ -35,9 +35,19 @@ export class UserService {
                 }
                 return users;
             })
-			.catch((error: any)=> {
-				console.log(error);
-				return Observable.throw(error);
-			});
+            .catch((error: any) => {
+                console.log(error);
+                return Observable.throw(error);
+            });
+    }
+
+    postData(obj: User) {
+        const body = JSON.stringify(obj);
+		console.log(body);
+        let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+
+        return this.http.post('http://localhost:64183/api/values/', body, { headers: headers })
+            .map((resp: Response) => resp.json())
+            .catch((error: any) => { return Observable.throw(error); });
     }
 }
