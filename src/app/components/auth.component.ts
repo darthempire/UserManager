@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Response } from '@angular/http';
 import { LogService } from '../services/log.service';
 import { UserService } from '../services/user.service';
 
@@ -17,9 +18,12 @@ export class AuthComponent {
     passwordHash: string;
     items: User[] = [];
 
-    constructor(private userService: UserService) {
-        console.log(userService.getPeoples());
-    }
+    constructor(private userService: UserService) {}
+
+	ngOnInit() {
+		let dat = this.userService.getPeoples()
+                        .subscribe((data: Response) => console.log(data.json()));
+	}
 
     @Input() userName: string;
 

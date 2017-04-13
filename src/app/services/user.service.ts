@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/User';
+import { Http 	} from '@angular/http';
 import { LogService } from '../services/log.service';
 
 @Injectable()
@@ -10,13 +11,13 @@ export class UserService {
         new User("Natasha", -12)
     ];
 
-	constructor(private logService: LogService) {
+	constructor(private logService: LogService, private http: Http) {
 
 	}
 
-    getPeoples(): User[] {
+    getPeoples() {
 		this.logService.write("операция получения данных");
-        return this.data;
+		return this.http.get('http://localhost:64183/api/values')
     }
 
     addPeople(name: string, mark: number) {
