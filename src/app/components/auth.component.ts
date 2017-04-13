@@ -18,14 +18,21 @@ export class AuthComponent {
     passwordHash: string;
     items: User[] = [];
     users: User[] = [];
+	error:any;
 
     constructor(private userService: UserService) { }
 
     ngOnInit() {
-        this.userService.getUsers().subscribe((data) => {
-            this.users = data;
-            console.log(this.users);
-        });
+        this.userService.getUsers().subscribe(
+            (data) => {
+                this.users = data;
+                console.log(this.users);
+            },
+			(error) => {
+				this.error = error;
+				console.log(error._body);
+			}
+        );
     }
 
     @Input() userName: string;
