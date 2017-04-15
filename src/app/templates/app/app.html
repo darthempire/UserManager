@@ -10,4 +10,12 @@
 	<a [routerLink]="['item', '8']">item 8</a>
 </ul>
 <hr>
+<div  class="form-group">
+	<h3>Параметры объекта</h3>
+	<input type="number" [(ngModel)]="item.id" class="form-control" /><br />
+	<input type="number" [(ngModel)]="item.price" class="form-control" /><br />
+	<input [(ngModel)]="item.product" class="form-control" /><br />
+	<button (click)="goToItem(item)" class="btn">Перейти</button>
+</div>
+<hr>
 <router-outlet></router-outlet>
