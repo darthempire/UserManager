@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
+
+import { ActivatedRoute} from '@angular/router';
+
 import { LogService } from '../services/log.service';
 import { UserService } from '../services/user.service';
 
@@ -19,8 +22,11 @@ export class AuthComponent {
     items: User[] = [];
     users: User[] = [];
     error: any;
+	id: number;
 
-    constructor(private userService: UserService) { }
+	constructor(private activateRoute: ActivatedRoute, private userService: UserService) {
+		this.id = activateRoute.snapshot.params['id'];
+	}
 
     ngOnInit() {
         this.userService.getUsers().subscribe(
