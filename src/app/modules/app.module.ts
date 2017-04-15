@@ -8,6 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from '../components/app.component';
 import { HomeComponent } from '../components/home.component';
 import { AboutComponent } from '../components/about.component';
+import { ItemComponent } from '../components/item.component';
 import { NotFoundComponent } from '../components/not-found.component';
 
 import { AboutGuard } from '../guards/auth.guard';
@@ -16,16 +17,18 @@ import { AboutGuard } from '../guards/auth.guard';
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'about', component: AboutComponent },
-	{ path: 'redirect', redirectTo: '/' },
+    { path: 'item/:id', component: ItemComponent },
+    { path: 'redirect', redirectTo: '/' },
     { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
     declarations: [
         AppComponent,
-		NotFoundComponent,
-		AboutComponent,
-		HomeComponent
+        NotFoundComponent,
+        AboutComponent,
+        HomeComponent,
+		ItemComponent
     ],
     imports: [
         BrowserModule,
