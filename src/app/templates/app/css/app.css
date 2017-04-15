@@ -10,3 +10,5 @@ p {
     font-family: Verdana;
     color: #555;
 }
+
+.active a { color: red;}

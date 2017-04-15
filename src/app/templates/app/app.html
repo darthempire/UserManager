@@ -1,18 +1,11 @@
-<!-- <auth-comp [(userName)]="name"></auth-comp> -->
-<!-- <h1>{{count}}</h1>
-<h2>{{name}}</h2>
-<button type="button" name="button" (click)="increase($event)">Click</button> -->
-<div class="">
-	<nav>
+<h1>Super app</h1>
+<ul class="nav">
+	<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
 		<a routerLink="">Главная</a>
+	</li>
+	<li routerLinkActive="active">
 		<a routerLink="/about">О сайте</a>
-	</nav>
-	<div  class="form-group">
-		<h3>Параметры объекта</h3>
-		<input type="number" [(ngModel)]="item.id" class="form-control" /><br />
-		<input type="number" [(ngModel)]="item.price" class="form-control" /><br />
-		<input [(ngModel)]="item.product" class="form-control" /><br />
-		<button (click)="goToItem(item)" class="btn">Перейти</button>
-	</div>
-</div>
+	</li>
+</ul>
+<hr>
 <router-outlet></router-outlet>
