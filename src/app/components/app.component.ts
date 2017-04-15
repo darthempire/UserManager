@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 
 export class Item{
-
     id: number;
     product: string;
     price: number;
@@ -19,10 +18,6 @@ export class AppComponent {
 	item: Item=new Item();
 
     constructor(private router: Router){}
-	//
-	// onChanged(increased) {
-	// 	increased == true ? this.count++ : this.count--;
-	// }
 
 	goToItem(myItem: Item){
 

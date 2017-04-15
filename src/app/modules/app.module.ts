@@ -6,8 +6,6 @@ import { HttpModule } from '@angular/http';
 import {Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from '../components/app.component';
-import { AuthComponent } from '../components/auth.component';
-import { ItemComponent } from '../components/item.component';
 import { NotFoundComponent } from '../components/not-found.component';
 
 import { AboutGuard }   from '../guards/auth.guard';
@@ -15,15 +13,12 @@ import { AboutGuard }   from '../guards/auth.guard';
 // определение маршрутов
 const appRoutes: Routes =[
     { path: '', component: AppComponent},
-	{ path: 'auth', component: AuthComponent, canActivate: [AboutGuard]},
-    { path: 'auth/:id', component: AuthComponent},
-	{ path: 'item/:id', component: ItemComponent},
     { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
     declarations: [
-        AppComponent, AuthComponent, NotFoundComponent, ItemComponent
+        AppComponent, NotFoundComponent
     ],
     imports: [
         BrowserModule,

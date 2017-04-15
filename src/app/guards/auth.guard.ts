@@ -4,7 +4,7 @@ import {Observable} from "rxjs/Rx";
 export class AboutGuard implements CanActivate{
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean> | boolean{
-
         return false;
     }
+	
 }
