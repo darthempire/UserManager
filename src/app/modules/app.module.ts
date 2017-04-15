@@ -10,10 +10,12 @@ import { AuthComponent } from '../components/auth.component';
 import { ItemComponent } from '../components/item.component';
 import { NotFoundComponent } from '../components/not-found.component';
 
+import { AboutGuard }   from '../guards/auth.guard';
+
 // определение маршрутов
 const appRoutes: Routes =[
     { path: '', component: AppComponent},
-	{ path: 'auth', component: AuthComponent},
+	{ path: 'auth', component: AuthComponent, canActivate: [AboutGuard]},
     { path: 'auth/:id', component: AuthComponent},
 	{ path: 'item/:id', component: ItemComponent},
     { path: '**', component: NotFoundComponent }
@@ -29,7 +31,7 @@ const appRoutes: Routes =[
         HttpModule,
 		RouterModule.forRoot(appRoutes)
     ],
-    providers: [],
+    providers: [AboutGuard],
     bootstrap: [AppComponent]
 })
 
