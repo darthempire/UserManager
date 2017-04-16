@@ -8,6 +8,7 @@ export class HttpClient {
 
     createAuthorizationHeader(headers: Headers) {
         headers.append('Authorization', 'Bearer ' + "mytokenahahahahahahhah");
+		headers.append('Content-Type', 'application/json;charset=utf-8');
     }
 
     get(url) {

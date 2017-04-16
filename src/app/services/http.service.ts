@@ -16,13 +16,16 @@ export class HttpService {
     constructor(private router: Router, private logService: LogService, private http: HttpClient) { }
 
     get(url) {
-        this.http.get(url).subscribe((data: Response) => {
-            if (data.status == 200) {
-				//if 401 => /unauthorize
-				localStorage.setItem('status', data.status.toString());
-                this.router.navigate(['/item']);
-            }
-            console.log(data.status);
+        this.http.get(url).subscribe((response: Response) => {
+            console.log(response);
         });
     }
+
+	post(url, data) {
+		data = JSON.stringify(data);
+		console.log(data);
+		this.http.post(url, data).subscribe((response: Response) => {
+			console.log(response);
+		});
+	}
 }
