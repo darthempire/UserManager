@@ -15,14 +15,11 @@ export class HttpService {
 
     constructor(private router: Router, private logService: LogService, private http: HttpClient) { }
 
-    OnInit() {
-
-    }
-
     get(url) {
         this.http.get(url).subscribe((data: Response) => {
             if (data.status == 200) {
 				//if 401 => /unauthorize
+				localStorage.setItem('status', data.status.toString());
                 this.router.navigate(['/item']);
             }
             console.log(data.status);
