@@ -28,4 +28,8 @@ export class HttpService {
 			console.log(response);
 		});
 	}
+
+	loginPost(url, data) {
+		return this.http.loginPost(url, data);
+	}
 }

@@ -1,4 +1,4 @@
 export class Global {
-    public static apiServiceBaseUriL: string = 'http://localhost:64183/';
+    public static apiServiceBaseUriL: string = 'http://lord17-001-site1.ctempurl.com/';
     public static clientId: string = "jsApp";
 }

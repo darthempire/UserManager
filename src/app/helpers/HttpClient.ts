@@ -8,7 +8,7 @@ export class HttpClient {
 
     createAuthorizationHeader(headers: Headers) {
         headers.append('Authorization', 'Bearer ' + "mytokenahahahahahahhah");
-		headers.append('Content-Type', 'application/json;charset=utf-8');
+        headers.append('Content-Type', 'application/json;charset=utf-8');
     }
 
     get(url) {
@@ -22,6 +22,15 @@ export class HttpClient {
     post(url, data) {
         let headers = new Headers();
         this.createAuthorizationHeader(headers);
+        return this.http.post(url, data, {
+            headers: headers
+        });
+    }
+
+    loginPost(url, data) {
+        let headers = new Headers();
+        //headers.append('Authorization', 'Bearer ' + "mytokenahahahahahahhah");
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
         return this.http.post(url, data, {
             headers: headers
         });

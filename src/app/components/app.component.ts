@@ -40,8 +40,8 @@ export class AppComponent {
         userRegistrationData.Password = "123456";
         userRegistrationData.ConfirmPassword = "123456";
 
-        this.authService.Registration(userRegistrationData);
-        //this.authService.Login(userloginData);
+        //this.authService.Registration(userRegistrationData);
+        this.authService.Login(userloginData);
         //this.authService.getSomething();
     }
 
