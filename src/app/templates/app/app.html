@@ -10,6 +10,8 @@
 	<a [routerLink]="['item', '8']">item 8</a>
 </ul>
 <hr>
+<button type="button" name="button" (click)="sendSomething()">Send</button>
+<hr>
 <div  class="form-group">
 	<h3>Параметры объекта</h3>
 	<input type="number" [(ngModel)]="item.id" class="form-control" /><br />
