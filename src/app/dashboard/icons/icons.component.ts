@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import * as initDemo from '../../../assets/js/charts.js';
 
 @Component({
     selector: 'icons-cmp',
