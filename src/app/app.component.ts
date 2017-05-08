@@ -15,7 +15,19 @@ export class AppComponent implements OnInit {
       console.log(this.location);
   }
 
-  ngOnInit() {
+  ngOnInit(){
+      $.getScript('../assets/js/material-dashboard.js');
+      $.getScript('../assets/js/initMenu.js');
+  }
+  public isMaps(path){
+      var titlee = this.location.prepareExternalUrl(this.location.path());
+      titlee = titlee.slice( 1 );
+      if(path == titlee){
+          return false;
+      }
+      else {
+          return true;
+      }
   }
 
 }

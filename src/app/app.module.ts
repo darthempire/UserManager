@@ -8,12 +8,14 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component'
 
 import { SidebarModule } from './sidebar/sidebar.module';
+import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     SidebarModule,
+    FooterModule,
     NavbarModule,
     BrowserModule,
     FormsModule,
