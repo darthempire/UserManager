@@ -14,15 +14,15 @@ const itemRoutes: Routes = [];
 const appRoutes: Routes = [];
 
 @NgModule({
-    declarations: [AppComponent],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        RouterModule.forRoot(appRoutes)
-    ],
-    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }

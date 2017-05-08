@@ -5,6 +5,12 @@
 /tmp
 /out-tsc
 
+# theme files
+/assets/css
+/assets/fonts
+/assets/js
+/assets/sass
+
 # dependencies
 /node_modules
 
