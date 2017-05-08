@@ -7,6 +7,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component'
 
+import { SidebarModule } from './sidebar/sidebar.module';
+
 // определение дочерних маршрутов
 const itemRoutes: Routes = [];
 
@@ -16,6 +18,7 @@ const appRoutes: Routes = [];
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    SidebarModule,
     BrowserModule,
     FormsModule,
     HttpModule,
