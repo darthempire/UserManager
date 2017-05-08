@@ -8,21 +8,17 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component'
 
 import { SidebarModule } from './sidebar/sidebar.module';
-
-// определение дочерних маршрутов
-const itemRoutes: Routes = [];
-
-// определение маршрутов
-const appRoutes: Routes = [];
+import { NavbarModule} from './shared/navbar/navbar.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     SidebarModule,
+    NavbarModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot([])
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
