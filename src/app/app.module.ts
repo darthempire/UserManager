@@ -5,15 +5,18 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-import { AppComponent } from './app.component'
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { DashboardModule } from './dashboard/dashboard.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DashboardComponent],
   imports: [
+    DashboardModule,
     SidebarModule,
     FooterModule,
     NavbarModule,
