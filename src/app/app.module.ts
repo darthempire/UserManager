@@ -7,13 +7,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthComponent } from './auth/auth.component';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
-import { AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent],
@@ -22,7 +20,6 @@ import { AuthModule} from './auth/auth.module';
     SidebarModule,
     FooterModule,
     NavbarModule,
-    AuthModule,
     BrowserModule,
     FormsModule,
     HttpModule,

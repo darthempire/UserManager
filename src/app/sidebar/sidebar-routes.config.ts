@@ -8,7 +8,5 @@ export const ROUTES: RouteInfo[] = [
     // { path: 'icons', title: 'Картинки',  icon:'bubble_chart', class: '' },
     { path: 'maps', title: 'Карты',  icon:'location_on', class: '' },
     { path: 'notifications', title: 'Оповещения',  icon:'notifications', class: '' },
-    { path: 'auth', title: 'Регистрация',  icon:'notifications', class: '' },
-    { path: 'login', title: 'Авторизация',  icon:'notifications', class: '' },
     // { path: 'upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 ];
