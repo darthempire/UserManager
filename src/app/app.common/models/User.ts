@@ -1,11 +1,13 @@
-export class User {
-    _id: number;
-    _userName: string;
+import { Role } from './Role';
 
-    constructor(id: number, name: string) {
-        this._id = id;
-        this._userName = name;
-    }
+export class User {
+    public UserName: string;
+    public Password: string;
+    public Email: string;
+    public Name: string;
+    public Surname: string;
+    public Information: string;
+    public Role: Role;
 }
 
 export class UserRegistrationModel {

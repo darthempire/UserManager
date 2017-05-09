@@ -7,8 +7,10 @@ export class HttpClient {
     constructor(private http: Http) { }
 
     createAuthorizationHeader(headers: Headers) {
-        headers.append('Authorization', 'Bearer ' + "mytokenahahahahahahhah");
+        let authData = JSON.parse(localStorage.getItem('authorizationData'));
+        headers.append('Authorization', 'Bearer ' + authData.token);
         headers.append('Content-Type', 'application/json;charset=utf-8');
+        console.log(headers);
     }
 
     get(url) {

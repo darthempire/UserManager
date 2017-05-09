@@ -1,0 +1,67 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Администрация</h4>
+                        <p class="category">Список управляющих пользователей</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <tr>
+                                    <th>Логин</th>
+                                    <th>Имя</th>
+                                    <th>Роль</th>
+                                    <th>Зарплата</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- *ngIf="user.Role.RoleName == 'manager'"> -->
+                                <tr *ngFor="let user of users |userRole:'manager'" >
+                                    <td>{{user.UserName}}</td>
+                                    <td>{{user.Name + ' ' + user.Surname}}</td>
+                                    <td>{{user.Role.RoleName}}</td>
+                                    <td class="text-danger">$36,738</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Пользователи</h4>
+                        <p class="category">пиздюки</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Логин</th>
+                                    <th>Имя</th>
+                                    <th>Роль</th>
+                                    <th>Зарплата</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of users |userRole:'user'">
+                                    <td>{{user.Id}}</td>
+                                    <td>{{user.UserName}}</td>
+                                    <td>{{user.Name + ' ' + user.Surname}}</td>
+                                    <td>{{user.Role.RoleName}}</td>
+                                    <td class="text-danger">$36,738</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

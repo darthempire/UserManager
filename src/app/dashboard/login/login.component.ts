@@ -19,7 +19,7 @@ declare var $:any;
     providers: [HttpService, LogService, HttpClient, AuthService]
 })
 
-export class LoginComponent{
+export class LoginComponent {
     login: string;
     password: string;
     constructor(private router: Router, private httpService: HttpService, private authService: AuthService) { }

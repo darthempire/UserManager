@@ -31,11 +31,8 @@ export class RegistrationComponent{
     constructor(private router: Router, private httpService: HttpService, private authService: AuthService) { }
 
     Register() {
-        console.log(123);
-        if(this.password == "" || this.login == "" || this.email == "") {
-            console.log(1113);
+        if(this.password == "" || this.login == "" || this.email == "")
             this.showNotification('bottom','center', 'info', "Не все обязательные поля заполненыы");
-        }
 
 
         if(this.password != this.confirmPassword) {
@@ -64,9 +61,6 @@ export class RegistrationComponent{
                 console.log(error);
             }
         );
-
-
-        //this.authService.getSomething();
     }
 
     private showNotification (from, align, color, message){
