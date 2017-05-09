@@ -11,17 +11,19 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 
+import { AuthGuard } from './../app.common/guards/auth.guard';
+
 export const MODULE_ROUTES: Route[] =[
-    { path: 'dashboard', component: HomeComponent },
-    { path: 'user', component: UserComponent },
-    { path: 'table', component: TableComponent },
-    { path: 'icons', component: IconsComponent },
-    { path: 'notifications', component: NotificationsComponent },
-    { path: 'typography', component: TypographyComponent },
-    { path: 'maps', component: MapsComponent },
-    { path: 'upgrade', component: UpgradeComponent },
-    { path: 'login', component: LoginComponent, pathMatch: 'full'  },
-    { path: 'registration', component: RegistrationComponent, pathMatch: 'full'  },
+    { path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
+    { path: 'table', component: TableComponent, canActivate: [AuthGuard] },
+    { path: 'icons', component: IconsComponent, canActivate: [AuthGuard] },
+    { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
+    { path: 'typography', component: TypographyComponent, canActivate: [AuthGuard] },
+    { path: 'maps', component: MapsComponent, canActivate: [AuthGuard] },
+    { path: 'upgrade', component: UpgradeComponent, canActivate: [AuthGuard] },
+    { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+    { path: 'registration', component: RegistrationComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ]
 
@@ -36,4 +38,8 @@ export const MODULE_COMPONENTS = [
     UpgradeComponent,
     LoginComponent,
     RegistrationComponent
+]
+
+export const MODULE_PROVIDERS = [
+    AuthGuard
 ]

@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { HttpService } from '../services/http.service';
 
@@ -22,11 +23,15 @@ export class AuthService {
 
     constructor(private httpService: HttpService) { }
 
-    Registration(userRegistrationData: UserRegistrationModel) {
-        return this.httpService.post(Global.apiServiceBaseUriL + 'api/users/register', userRegistrationData);
+    Registration(userRegistrationData: UserRegistrationModel) : Observable<any>{
+        return this.httpService.post(Global.apiServiceBaseUriL + 'api/users/register', userRegistrationData)
+        .map((resp: Response) => {
+            return resp;
+        })
+        .catch((error: any) => { return Observable.throw(error); })
     }
 
-    Login(userLoginData: UserLoginModel) {
+    Login(userLoginData: UserLoginModel) : Observable<any> {
 
         let body = "grant_type=password&username=" + userLoginData.UserName
             + "&password=" + userLoginData.Password
@@ -34,21 +39,13 @@ export class AuthService {
 
         let response = this.httpService.loginPost(Global.apiServiceBaseUriL + 'token', body)
             .map((resp: Response) => {
-                return resp.json();
-            }).subscribe((data) => {
-                localStorage.setItem(
-                    'authorizationData',
-                    JSON.stringify(
-                        {
-                            token: data.access_token,
-                            userName: data.userName,
-                            refreshToken: data.refresh_token
-                        }
-                    )
-                );
                 this.authentification.isAuth = true;
-                this.authentification.userName = data.userName;
-            });
+                this.authentification.userName = userLoginData.UserName;
+                return resp.json();
+            })
+            .catch((error: any) => { return Observable.throw(error); });
+
+        return response;
     }
 
     RefreshToken() {
@@ -94,7 +91,7 @@ export class AuthService {
     }
 
     getSomething() {
-        let response = this.httpService.get(Global.apiServiceBaseUriL + 'api/values');
+        let response = this.httpService.get(Global.apiServiceBaseUriL + 'api/users');
         console.log(response);
     }
 }

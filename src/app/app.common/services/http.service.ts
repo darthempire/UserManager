@@ -16,17 +16,13 @@ export class HttpService {
     constructor(private router: Router, private logService: LogService, private http: HttpClient) { }
 
     get(url) {
-        this.http.get(url).subscribe((response: Response) => {
-            console.log(response);
-        });
+        return this.http.get(url);
     }
 
 	post(url, data) {
-		data = JSON.stringify(data);
-		console.log(data);
-		this.http.post(url, data).subscribe((response: Response) => {
-			console.log(response);
-		});
+		// data = JSON.stringify(data);
+        console.log(data);
+		return this.http.post(url, data);
 	}
 
 	loginPost(url, data) {

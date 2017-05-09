@@ -12,6 +12,10 @@ export class UserRegistrationModel {
     public UserName: string;
     public Password: string;
     public ConfirmPassword: string;
+    public Email: string;
+    public Name: string;
+    public Surname: string;
+    public Information: string;
 }
 
 export class UserLoginModel {

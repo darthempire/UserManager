@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
 
   ngDoCheck() {
     this.isAuthPage = this.checkIsAuthPage();
-    console.log(this.isAuthPage);
   }
 
   private checkIsAuthPage(): boolean {
