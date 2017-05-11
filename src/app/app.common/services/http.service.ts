@@ -19,6 +19,10 @@ export class HttpService {
         return this.http.get(url);
     }
 
+    delete(url) {
+        return this.http.delete(url);
+    }
+
 	post(url, data) {
 		// data = JSON.stringify(data);
         console.log(data);

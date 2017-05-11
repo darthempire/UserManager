@@ -21,6 +21,14 @@ export class HttpClient {
         })
     }
 
+    delete(url) {
+        let headers = new Headers();
+        this.createAuthorizationHeader(headers);
+        return this.http.delete(url, {
+            headers: headers
+        })
+    }
+
     post(url, data) {
         let headers = new Headers();
         this.createAuthorizationHeader(headers);

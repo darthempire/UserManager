@@ -21,14 +21,28 @@ export class UserService {
 
         return this.httpService.get('http://lord17-001-site1.ctempurl.com/api/users')
             .map((resp: Response) => {
+                return resp.json();
+            })
+            .catch((error: any) => {
+                return Observable.throw(error);
+            });
+    }
 
-                let usersList = resp.json();
-                let users: User[] = [];
-                for (let index in usersList) {
-                    let user = usersList[index];
-                    users.push(user);
-                }
-                return users;
+    getUser(id: number): Observable<User> {
+
+        return this.httpService.get('http://lord17-001-site1.ctempurl.com/api/users/' + id)
+            .map((resp: Response) => {
+                return resp.json();
+            })
+            .catch((error: any) => {
+                return Observable.throw(error);
+            });
+    }
+
+    deleteUser(userId: number) {
+        return this.httpService.delete('http://lord17-001-site1.ctempurl.com/api/users/' + userId)
+            .map((resp: Response) => {
+                return resp;
             })
             .catch((error: any) => {
                 return Observable.throw(error);

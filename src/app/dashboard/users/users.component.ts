@@ -26,6 +26,26 @@ export class UsersComponent {
     constructor(private router: Router, private httpService: HttpService, private userService: UserService) { }
 
     ngOnInit(){
+        this.UpdateUsers();
+    }
+
+    public DeleteUser(userId: number) {
+        this.userService.deleteUser(userId)
+        .subscribe(
+            (data) => {
+                console.log(data);
+                this.showNotification('bottom','center', 'success', "Пользователь успешно удален.");
+                this.UpdateUsers();
+            },
+            (error) => {
+                this.showNotification('bottom','center', 'danger', "Дико извиняемся. Произошла ошибка...");
+                this.UpdateUsers();
+                console.log(error);
+            }
+        );
+    }
+
+    private UpdateUsers() {
         this.userService.getUsers()
         .subscribe(
             (data) => { this.users = data; console.log(this.users); },
@@ -33,5 +53,22 @@ export class UsersComponent {
                 console.log(error);
             }
         );
+    }
+
+    private showNotification (from, align, color, message){
+        var type = ['','info','success','warning','danger'];
+
+        $.notify({
+            icon: "notifications",
+            message: message
+
+        },{
+            type: color,
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
     }
 }
